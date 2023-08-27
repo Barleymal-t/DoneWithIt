@@ -13,7 +13,7 @@ import {
   StatusBar,
   View,
   Dimensions,
-  Switch
+  Switch,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -36,26 +36,49 @@ import AppPicker from "./app/components/AppPicker";
 
 export default function App() {
   // console.log(useDeviceOrientation());
-  const devOri = useDeviceOrientation();
-  const dimensionStyle = { height: devOri === "landscape" ? "100%" : "30%" };
-  const handlePress = () => {
-    console.log("Text Pressed");
-  };
+  // const devOri = useDeviceOrientation();
+  // const dimensionStyle = { height: devOri === "landscape" ? "100%" : "30%" };
+  // const handlePress = () => {
+  //   console.log("Text Pressed");
+  // };
 
   // console.log(require("./assets/icon.png"));
   // console.log(Dimensions.get("window"));
 
-  const [isNew, setIsNew] = useState(false)
+  // const [isNew, setIsNew] = useState(false)
+  const categories = [
+    {
+      label: "Furniture",
+      value: 1,
+    },
+    {
+      label: "Clothing",
+      value: 2,
+    },
+    {
+      label: "Cameras",
+      value: 3,
+    },
+  ];
+
+  const [category, setCategory] = useState(categories[0]);
 
   return (
     <Screen>
-      <AppPicker placeholder="Category"/>
-      <AppTextInput placeholder="Email"/>
+      <AppPicker
+        selectedItem={category}
+        onSelectItem={(item) => setCategory(item)}
+        icon="apps"
+        placeholder="Category"
+        items={categories}
+      />
+      <AppTextInput icon="email" placeholder="Email" />
     </Screen>
+    // <Switch value={isNew} onValueChange={(newValue)=>setIsNew(newValue)}/>
     // <AccountScreen/>
     // <Screen>
-      // <ListItem title="My Title" subTitle="My Subtitle" ImageComponent={<Icon name="email"/>}/>
-      //  <Icon name="email" size={50} backgroundColor="red" iconColor="white"/> 
+    // <ListItem title="My Title" subTitle="My Subtitle" ImageComponent={<Icon name="email"/>}/>
+    //  <Icon name="email" size={50} backgroundColor="red" iconColor="white"/>
     // </Screen>
     // <MessagesScreen/>
     // <ListingDetailsScreen/>
