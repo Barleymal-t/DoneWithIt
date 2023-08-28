@@ -12,7 +12,7 @@ function AppFormPicker({ items, name, placeholder }:any) {
         items={items}
         onSelectItem={(item) => setFieldValue(name, item)}
         placeholder={placeholder}
-        selectedItem={items[0]}
+        selectedItem={items[name]}
       />
       <ErrorMessage error={errors[name as keyof typeof errors]} visible={touched[name as keyof typeof touched]} />
     </>
