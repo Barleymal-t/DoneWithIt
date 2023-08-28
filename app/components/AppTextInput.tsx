@@ -10,7 +10,11 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import defaultStyles from "../config/styles";
 import colors from "../config/colors";
 
-function AppTextInput({ icon, ...otherProps }: any) {
+export interface AppTextInputProps extends TextInputProps {
+  icon?:any
+}
+
+function AppTextInput({ icon, ...otherProps }: AppTextInputProps) {
   return (
     <View style={styles.container}>
       {icon && (
@@ -31,6 +35,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.light,
     borderRadius: 25,
     flexDirection: "row",
+    alignItems:"center",
     width: "100%",
     padding: 15,
     marginVertical: 10,

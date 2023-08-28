@@ -19,7 +19,7 @@ import colors from "../config/colors";
 import PickerItem from "./PickerItem";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
-type Category = {
+export type Category = {
   label: string;
   value: number;
 };
@@ -31,7 +31,7 @@ function AppPicker({
   placeholder,
   selectedItem,
 }: {
-  icon: any,
+  icon?: any,
   items: Category[],
   onSelectItem:(item:Category)=>any,
   selectedItem:Category,
