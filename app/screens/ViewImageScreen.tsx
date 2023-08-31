@@ -3,8 +3,14 @@ import { Image,StyleSheet, View } from 'react-native';
 import {MaterialCommunityIcons} from "@expo/vector-icons"
 
 import colors from '../config/colors';
+import { RootStackParamList } from '../../App';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import AppButton from '../components/AppButton';
 
-function ViewImageScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, 'ListingDetails'>;
+
+
+function ViewImageScreen({navigation}:Props) {
   return ( 
     <View style={styles.container}>
       <View style={styles.closeIcon}>
@@ -15,6 +21,8 @@ function ViewImageScreen() {
         <MaterialCommunityIcons name='trash-can-outline' color={colors.white} size={35}/>
       </View>
 <Image resizeMode='contain' style={styles.image} source={require("../assets/chair.jpg")}/>
+<AppButton title="Register" color='secondary' onPress={()=>navigation.navigate('Account')}/>
+
     </View>
   );
 }

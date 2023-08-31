@@ -7,6 +7,9 @@ import ListItem from "../components/ListItem";
 import colors from "../config/colors";
 import Icon from "../components/Icon";
 import ListItemSeparator from "../components/ListItemSeparator";
+import { RootStackParamList } from "../../App";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import AppButton from "../components/AppButton";
 
 const manyItems = [
   {
@@ -25,7 +28,10 @@ const manyItems = [
   },
 ];
 
-function AccountScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, 'Auth'>;
+
+
+function AccountScreen({navigation}:Props) {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
@@ -41,6 +47,8 @@ function AccountScreen() {
         renderItem={({item})=><ListItem title={item.title} IconComponent={<Icon name={item.icon.name} backgroundColor={item.icon.backgroundColor}/>}/>} />
       </View>
       <ListItem title="Log Out" IconComponent={<Icon name="logout" backgroundColor="#ffe66d"/>} />
+      <AppButton title="Next" color='secondary' onPress={()=>navigation.navigate('Auth')}/>
+
     </Screen>
   );
 }

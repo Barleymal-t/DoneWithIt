@@ -7,6 +7,9 @@ import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
 import ListItemSeparator from "../components/ListItemSeparator";
 import ListItemDeleteAction from "../components/ListItemDeleteAction";
+import { RootStackParamList } from "../../App";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import AppButton from "../components/AppButton";
 
 const initialMessages = [
   {
@@ -23,11 +26,15 @@ const initialMessages = [
   },
 ];
 
-function MessagesScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, 'Messages'>;
+
+
+
+function MessagesScreen({navigation}:Props) {
   const [messages,setMessages] = useState(initialMessages)
   const [refreshing,setRefreshing] = useState(false)
 
-   const handleDelete = message => {
+   const handleDelete = (message:typeof initialMessages[0]) => {
     // delete message from message array
     setMessages(messages.filter(m=> m.id!==message.id))
 
@@ -63,6 +70,8 @@ function MessagesScreen() {
           ])
         }}
         />
+              <AppButton title="Next" color='secondary' onPress={()=>navigation.navigate('Account')}/>
+
     </Screen>
   );
 }

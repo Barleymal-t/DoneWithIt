@@ -4,13 +4,17 @@ import * as Yup from "yup";
 
 import Screen from "../components/Screen";
 import {AppForm,AppFormField,SubmitButton} from "../components/forms"
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../App";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password"),
 });
 
-function LoginScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, 'Auth'>;
+
+function LoginScreen({navigation}:Props) {
   return (
     <Screen style={styles.container}>
       <Image style={styles.logo} source={require("../assets/logo-red.png")} />
@@ -38,7 +42,7 @@ function LoginScreen() {
           secureTextEntry
           textContentType="password"
         />
-        <SubmitButton title="Login" />
+        <SubmitButton title="Login" onPress={()=>navigation.navigate('Welcome')}/>
       </AppForm>
     </Screen>
   );

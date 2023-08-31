@@ -5,6 +5,8 @@ import * as Yup from "yup";
 import { AppForm, AppFormField, SubmitButton } from "../components/forms";
 import Screen from "../components/Screen";
 import AppFormPicker from "../components/forms/AppFormPicker";
+import { RootStackParamList } from "../../App";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -28,7 +30,10 @@ const categories = [
   },
 ];
 
-function ListingEditScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, 'ListingEdit'>;
+
+
+function ListingEditScreen({navigation}:Props) {
   return (
     <Screen style={styles.container}>
       <AppForm
@@ -61,6 +66,7 @@ function ListingEditScreen() {
           placeholder="Description"
         />
         <SubmitButton title="Post" />
+        <SubmitButton title="Next" onPress={()=>navigation.navigate('Messages')}/>
       </AppForm>
     </Screen>
   );

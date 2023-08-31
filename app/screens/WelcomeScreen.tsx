@@ -3,8 +3,12 @@ import { ImageBackground,StyleSheet, View,Image, Text } from 'react-native';
 
 import colors from '../config/colors';
 import AppButton from '../components/AppButton';
+import { RootStackParamList } from '../../App';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-function WelcomeScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, 'Welcome'>;
+
+function WelcomeScreen({navigation}:Props) {
   return (
     <ImageBackground blurRadius={10} source={require("../assets/background.jpg")} style={styles.background}>
       <View style={styles.logoContainer}>
@@ -15,6 +19,7 @@ function WelcomeScreen() {
 
       <AppButton title="Login"/>
       <AppButton title="Register" color='secondary'/>
+      <AppButton title="Next" color='secondary' onPress={()=>navigation.navigate('Listings')}/>
       </View>
     </ImageBackground>
 

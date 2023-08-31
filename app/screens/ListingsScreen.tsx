@@ -4,6 +4,9 @@ import { FlatList, StyleSheet } from "react-native";
 import Screen from "../components/Screen";
 import Card from "../components/Card";
 import colors from "../config/colors";
+import AppButton from "../components/AppButton";
+import { RootStackParamList } from "../../App";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 const listings = [
   {
@@ -20,7 +23,9 @@ const listings = [
   },
 ];
 
-function ListingsScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, 'Listings'>;
+
+function ListingsScreen({navigation}:Props) {
   return (
     <Screen style={styles.screen}>
       <FlatList
@@ -34,6 +39,8 @@ function ListingsScreen() {
           />
         )}
       />
+            <AppButton title="Next" color='secondary' onPress={()=>navigation.navigate('ListingDetails')}/>
+
     </Screen>
   );
 }

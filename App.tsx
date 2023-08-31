@@ -16,8 +16,11 @@ import {
   Switch,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-
 import { useDeviceOrientation } from "@react-native-community/hooks";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+
 
 import WelcomeScreen from "./app/screens/WelcomeScreen";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
@@ -34,8 +37,26 @@ import ListingsScreen from "./app/screens/ListingsScreen";
 import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
 import LoginScreen from "./app/screens/LoginScreen";
+import ListingEditScreen from "./app/screens/ListingEditScreen";
 
+export type RootStackParamList = {
+  Auth: undefined;
+  Welcome: undefined;
+  Listings: undefined;
+  ListingDetails: undefined;
+  ListingEdit: undefined;
+  Messages: undefined;
+  Account: undefined;
+  Image:undefined;
+  Profile: { userId: string };
+  Feed: { sort: 'latest' | 'top' } | undefined;
+};
 export default function App() {
+
+
+  const Stack = createNativeStackNavigator<RootStackParamList>()
+
+
   // console.log(useDeviceOrientation());
   // const devOri = useDeviceOrientation();
   // const dimensionStyle = { height: devOri === "landscape" ? "100%" : "30%" };
@@ -65,7 +86,19 @@ export default function App() {
   const [category, setCategory] = useState(categories[0]);
 
   return (
-    <LoginScreen/>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Auth" component={LoginScreen} options={{headerShown:false}} />
+        <Stack.Screen name="Welcome" component={WelcomeScreen} options={{headerShown:false}}/>
+        <Stack.Screen name="Listings" component={ListingsScreen} options={{headerShown:false}}/>
+        <Stack.Screen name="ListingDetails" component={ListingDetailsScreen} options={{headerShown:false}}/>
+        <Stack.Screen name="ListingEdit" component={ListingEditScreen} options={{headerShown:false}}/>
+        <Stack.Screen name="Messages" component={MessagesScreen} options={{headerShown:false}}/>
+        <Stack.Screen name="Account" component={AccountScreen} options={{headerShown:false}}/>
+        <Stack.Screen name="Image" component={ViewImageScreen} options={{headerShown:false}}/>
+      </Stack.Navigator>
+
+    </NavigationContainer>
     // <Screen>
     //   <AppPicker
     //     selectedItem={category}

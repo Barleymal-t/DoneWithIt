@@ -3,8 +3,14 @@ import { View, Image, StyleSheet } from "react-native";
 import AppText from "../components/AppText";
 import colors from "../config/colors";
 import ListItem from "../components/ListItem";
+import { RootStackParamList } from "../../App";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import AppButton from "../components/AppButton";
 
-function ListingDetailsScreen() {
+type Props = NativeStackScreenProps<RootStackParamList, 'ListingDetails'>;
+
+
+function ListingDetailsScreen({navigation}:Props) {
   return (
     <View>
       <Image style={styles.image} source={require("../assets/jacket.jpg")} />
@@ -21,6 +27,7 @@ function ListingDetailsScreen() {
         />
         </View>
       </View>
+      <AppButton title="Next" color='secondary' onPress={()=>navigation.navigate('ListingEdit')}/>
     </View>
   );
 }
