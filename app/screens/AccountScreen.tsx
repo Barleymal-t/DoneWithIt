@@ -28,7 +28,7 @@ const manyItems = [
   },
 ];
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Auth'>;
+type Props = NativeStackScreenProps<RootStackParamList, 'Account'>;
 
 
 function AccountScreen({navigation}:Props) {

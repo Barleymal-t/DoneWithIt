@@ -7,7 +7,7 @@ import { RootStackParamList } from '../../App';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import AppButton from '../components/AppButton';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'ListingDetails'>;
+type Props = NativeStackScreenProps<RootStackParamList, 'Image'>;
 
 
 function ViewImageScreen({navigation}:Props) {

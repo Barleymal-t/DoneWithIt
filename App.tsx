@@ -1,3 +1,4 @@
+import 'expo-dev-client'
 import React, { useState } from "react";
 // import { StatusBar } from "expo-status-bar";
 import {

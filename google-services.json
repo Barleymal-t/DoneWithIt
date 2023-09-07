@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "763475403179",
+    "project_id": "donewithit-349e5",
+    "storage_bucket": "donewithit-349e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763475403179:android:7f840ec257a2a8e8eb72ee",
+        "android_client_info": {
+          "package_name": "com.barleymalt.DoneWithIt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "763475403179-k55t2rd1dvtq8nllh28pn34e2mkpaabo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.barleymalt.DoneWithIt",
+            "certificate_hash": "31236e553bb41ff4cc82a6dd47d327ee70aec56f"
+          }
+        },
+        {
+          "client_id": "763475403179-so6s67qqf4nn90l4jrijumvqjteqv973.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.barleymalt.DoneWithIt",
+            "certificate_hash": "e497600eb11983f4ff54fb2fd5af9e51ebdc705d"
+          }
+        },
+        {
+          "client_id": "763475403179-nt4c6i47l5tubhr0kkas5rl0pef1j55u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0CBbQvwmkZJudWawSJda9h8hU1zwJ9U4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "763475403179-nt4c6i47l5tubhr0kkas5rl0pef1j55u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
